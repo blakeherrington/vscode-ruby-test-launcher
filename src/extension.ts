@@ -29,8 +29,17 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
+    let rerunLastTest = vscode.commands.registerCommand('extension.rerunLastTest', () => {
+        vscode.window.setStatusBarMessage('Test Launcher: Rerunning last test', 3000);
+
+        if (vscode.window.activeTextEditor !== undefined) {
+            issueCommand('--rerun');
+        }
+    });
+
     context.subscriptions.push(runTestLine);
     context.subscriptions.push(runTestFile);
+    context.subscriptions.push(rerunLastTest);
 
     function issueCommand(launcher_args: string): void {
         const terminal: vscode.Terminal = vscode.window.createTerminal('Run Test File');
