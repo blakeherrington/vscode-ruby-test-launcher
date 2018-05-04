@@ -23,7 +23,21 @@
         {
             "command": "extension.runTestFile",
             "title": "Test Launcher: Run Test File"
-        }]
+        }],
+        "keybindings": [
+            {
+                "command": "extension.runTestLine",
+                "key": "cmd+shift+r",
+                "mac": "cmd+shift+r",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "extension.runTestFile",
+                "key": "alt+cmd+r",
+                "mac": "alt+cmd+r",
+                "when": "editorTextFocus"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
