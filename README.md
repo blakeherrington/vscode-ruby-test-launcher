@@ -6,9 +6,11 @@ This extension leverages the test_launcher gem to make it easier to run your rub
 
 You can run a single test, all tests in the current file, and rerun the previously run test.
 
+```
 runTestLine - cmd+shift+r
 runTestFile - cmd+alt+r
 rerunLastTest - cmd+r
+```
 
 ## Requirements
 
