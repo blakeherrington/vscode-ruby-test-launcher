@@ -2,7 +2,7 @@
     "name": "ruby-test-launcher",
     "displayName": "Ruby Test Launcher",
     "description": "",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "blakeh",
     "engines": {
         "vscode": "^1.21.0"
