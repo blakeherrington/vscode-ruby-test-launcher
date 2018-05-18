@@ -4,6 +4,9 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
+    let terminal: vscode.Terminal;
+    const TERMINAL_NAME: string = 'Ruby Test Launcher';
+
     let runTestLine = vscode.commands.registerCommand('extension.runTestLine', () => {
         vscode.window.setStatusBarMessage('Test Launcher: Running test', 3000);
 
@@ -42,9 +45,18 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(rerunLastTest);
 
     function issueCommand(launcher_args: string): void {
-        const terminal: vscode.Terminal = vscode.window.createTerminal('Run Test File');
+        const terminal = findOrCreateTerminal();
+
         terminal.show();
         terminal.sendText(`test_launcher ${launcher_args}`);
+    }
+
+    function findOrCreateTerminal(): vscode.Terminal {
+        if (terminal === undefined) {
+            terminal = vscode.window.createTerminal(TERMINAL_NAME);
+        }
+
+        return terminal;
     }
 }
 
