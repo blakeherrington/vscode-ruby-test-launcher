@@ -44,12 +44,12 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(runTestFile);
     context.subscriptions.push(rerunLastTest);
 
-    function issueCommand(launcher_args: string): void {
+    function issueCommand(launcherArgs: string): void {
         const terminal = findOrCreateTerminal();
 
         terminal.show();
         const launcherOptions = vscode.workspace.getConfiguration().get('rubyTestLauncher.disableSpring') ? '--disable-spring' : ''
-        terminal.sendText(`test_launcher ${launcher_args} ${launcherOptions}`);
+        terminal.sendText(`test_launcher ${launcherArgs} ${launcherOptions}`);
     }
 
     function findOrCreateTerminal(): vscode.Terminal {
