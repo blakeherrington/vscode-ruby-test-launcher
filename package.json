@@ -16,18 +16,32 @@
     ],
     "main": "./out/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.runTestLine",
-            "title": "Test Launcher: Run Test Line"
+        "commands": [
+            {
+                "command": "extension.runTestLine",
+                "title": "Test Launcher: Run Test Line"
+            },
+            {
+                "command": "extension.runTestFile",
+                "title": "Test Launcher: Run Test File"
+            },
+            {
+                "command": "extension.rerunLastTest",
+                "title": "Test Launcher: Rerun Last Test"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Ruby Test Launcher",
+            "properties": {
+                "rubyTestLauncher.disableSpring": {
+                    "type": "boolean",
+                    "default": false,
+                    "markdownDescription": "Disable spring. You can also set the env var: DISABLE_SPRING=1",
+                    "scope": "window"
+                }
+            }
         },
-        {
-            "command": "extension.runTestFile",
-            "title": "Test Launcher: Run Test File"
-        },
-        {
-            "command": "extension.rerunLastTest",
-            "title": "Test Launcher: Rerun Last Test"
-        }],
         "keybindings": [
             {
                 "command": "extension.runTestLine",
