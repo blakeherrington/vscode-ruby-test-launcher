@@ -48,6 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
         const terminal = findOrCreateTerminal();
 
         terminal.show();
+        terminal.sendText('clear');
         terminal.sendText(`test_launcher ${launcher_args}`);
     }
 
